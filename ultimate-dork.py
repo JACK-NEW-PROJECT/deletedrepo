@@ -90,7 +90,7 @@ def dork_():
     try:
        G = gs(query)
       # print yellow+poo+_white+Lgreen+'Searching... In Google.com'+_white
-       ciyee_recode = G.start_search(max_page=0)
+       ciyee_recode = G.start_search(max_page=bing_count)
        oh = G.search_result
        if not verbose:
           for u in oh:
