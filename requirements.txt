@@ -1,4 +1,0 @@
-pygoogling
-bs4
-requests
-colorama
