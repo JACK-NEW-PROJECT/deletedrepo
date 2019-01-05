@@ -20,5 +20,8 @@ if your want to scan sql injection Vulnerability you can type command :
 python3 ultimate-dork.py --dork example.php?id --max-page 9 --output list.txt --scan
 for description type command python3 ultimate-dork.py --help
 ```
-[support] on python2.7.x and python3.7.x
-[update] : 6 jan 2019
+ ##### [support] 
+ python2.7.x version and python3.7.x
+ ##### [update] 
+ 6 jan 2019
+#### COPYRIGHT©2019 https://github.com/jaxBCD
