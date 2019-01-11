@@ -50,3 +50,5 @@ except KeyboardInterrupt:
 except KeyError:
    parser.print_help()
 
+except TypeError:
+    parser.print_help()
