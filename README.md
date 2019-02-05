@@ -15,6 +15,7 @@
 - Installation
 apt-get install python python3 git
 git clone https://github.com/jaxBCD/Ultimate-Dork.git
+python3 -m pip install requests
 cd Ultimate-Dork
 
  - Usage 
