@@ -85,13 +85,9 @@ class dork:
           for yandex in range(1,(self.max_page+1)):
               url = dork.__url[5].format(self.query,str(yandex))
               resp = requests.get(url,headers=dork.user_agent,proxies=self.proxy)
-              if '{"captchaSound"' in resp.text:
-                 print('[Yandex] Captcha Detect')
-                 continue
-              else:
-                 link = re.findall(dork.__regex[5],unquote(resp.text))
-                 for urls in link:
-                     dork.links.append(urls)
+              link = re.findall(dork.__regex[5],unquote(resp.text))
+              for urls in link:
+                  dork.links.append(urls)
           return dork.links
 
 
