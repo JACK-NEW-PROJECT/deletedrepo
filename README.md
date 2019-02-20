@@ -7,7 +7,6 @@
  * [Bing](https://www.bing.com)<br>
  * [Yahoo](https://search.yahoo.com)<br>
  * [Baidu](https://www.baidu.com)<br>
- * [Yandex](https://yandex.com)<br>
 
 
 #### Usage & Installation
