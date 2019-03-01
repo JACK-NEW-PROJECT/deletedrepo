@@ -29,7 +29,7 @@ class search_engine(object):
           for google in range(1,(self.page+1)):
               anim(f'{c.G}www.google.com{c.W}')
               resp = requests.get(
-                     f'https://www.google.com/search?q={self.keyword}&start={self.page}',
+                     f'https://www.google.com/search?q={self.keyword}&start={google}',
                      proxies=self.proxy
               )
               _link = re.findall(
@@ -45,7 +45,7 @@ class search_engine(object):
           for yahoo in range(1,(self.page+1)):
               anim(f'{c.G}search.yahoo.com{c.W}')
               resp = requests.get(
-                     f'https://search.yahoo.com/search?p={self.keyword}&b={self.page}',
+                     f'https://search.yahoo.com/search?p={self.keyword}&b={yahoo}',
                      proxies=self.proxy
               )
               _link = re.findall(
@@ -61,7 +61,7 @@ class search_engine(object):
           for bing in range(1,(self.page+1)):
               anim(f'{c.G}www.bing.com{c.W}')
               resp = requests.get(
-                     f'https://www.bing.com/search?q={self.keyword}&first={self.page}',
+                     f'https://www.bing.com/search?q={self.keyword}&first={bing}',
                      proxies=self.proxy                
               )
               _link = re.findall(
@@ -77,7 +77,7 @@ class search_engine(object):
           for baidu in range(1,(self.page+1)):
               anim(f'{c.G}www.baidu.com{c.W}')
               resp = requests.get(
-                     f'http://www.baidu.com/s?wd={self.keyword}&pn={self.page}',
+                     f'http://www.baidu.com/s?wd={self.keyword}&pn={baidu}',
                      proxies=self.proxy,
                      headers=search_engine.__uag
               )
