@@ -1,6 +1,6 @@
 
 ### Ultimate-Dork ![Python|3.7](https://img.shields.io/badge/Python-3.7-blue.svg)
-<img src="lib/Ultimate-Dork.png" width="400" height="100">
+<img src="lib/Ultimate-Dork.png" width="400" height="400">
 <b>web crawler And Scan SQL injection vulnerability<b><br>
  
 #### Usage & Installation
