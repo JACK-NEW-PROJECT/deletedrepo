@@ -15,6 +15,7 @@ except Exception as e:
 from lib.lib import Parser
 from lib.sqlscan import sqli_scan
 from lib.tmp import logo
+from lib.tmp import color as c
 
 urls = []
 
@@ -44,29 +45,29 @@ class crawl(object):
       def Bing(self):
           bing = Parser(
             self.dork,
-            crawl.auth[1][0],
-            crawl.auth[1][1],
-            crawl.auth[1][2],
-            proxy = self.proxy
-          )
-          bing.request()
-          for url in dir(bing):
-              if 'blogspot.com' in url or 'wordpress.com' in url or 'exploitdb' in url or 'facebook.com' in url or 'pastebin.com' in url:
-                 pass
-              else:
-                 urls.append(url)
-              
-      def Google(self):
-          google = Parser(
-            self.dork,
             crawl.auth[2][0],
             crawl.auth[2][1],
             crawl.auth[2][2],
             proxy = self.proxy
           )
+          bing.request()
+          for url in dir(bing):
+              if 'go.microsoft.com' in url or 'bing.com' in url:
+                  pass
+              else:
+                  urls.append(url)
+              
+      def Google(self):
+          google = Parser(
+            self.dork,
+            crawl.auth[1][0],
+            crawl.auth[1][1],
+            crawl.auth[1][2],
+            proxy = self.proxy
+          )
           google.request()
           for url in dir(google):
-              if 'blogspot.com' in url or 'wordpress.com' in url or 'exploitdb' in url or 'facebook.com' in url or 'bing.com' in url or 'pastebin.com' in url:
+              if 'go.microsoft.com' in url or 'bing.com' in url:
                  pass
               else:
                  urls.append(url)
@@ -121,10 +122,16 @@ try:
            _ = crawl(arg.dork,proxy=arg.proxy)
            _.Bing()
            _.Google()
-           for url in list(set(urls)):
-               print('- {}'.format(url))
-           for scan in list(set(urls)):
-               SQLi_Scanner().scan(scan)
+           if urls != []:
+              for url in list(set(urls)):
+                  print('- {}'.format(url))
+              for scan in list(set(urls)):
+                  try:
+                      SQLi_Scanner().scan(scan)
+                  except Exception as e:
+                      print(e)
+           else:
+              print('\n{}[-]{} No Url Found !\n'.format(c.R,c.W)) 
        else:
            par.print_help()        
     elif not arg.scan:
@@ -133,8 +140,11 @@ try:
           _ = crawl(arg.dork,proxy=arg.proxy)
           _.Bing()
           _.Google()
-          for url in list(set(urls)):
-              print('- {}'.format(url))
+          if urls != []:
+             for url in list(set(urls)):
+                 print('- {}'.format(url))
+          else:
+             print('\n{}[-]{} No Url Found !\n'.format(c.R,c.W))
        else:
           par.print_help()              
     else:           
