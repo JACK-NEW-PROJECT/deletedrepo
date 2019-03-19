@@ -44,7 +44,7 @@ class Parser(object):
           
       def get_page(self):
           self.__req = scrape()
-          self.__req.open(
+          s = self.__req.open(
             self.URL,
             proxies = self.proxy,
             timeout = 10
@@ -69,47 +69,21 @@ class Parser(object):
       def request(self):
           self.__req = scrape()
           for page in self.get_page():
-              load()
               try:
-                   self.__req.open(
-                   f'{self.URL}{page.get("href")}',
-                   proxies = self.proxy,
-                   timeout = 7
-                 )
-                   content = str(self.__req.get_current_page())
-                   for urls in findall(
-                     self.__pattern,
-                     content
-                   ):
-                       if 'www.google.com' in self.URL: self.__list.append(urls)
-                       else: self.__list.append(urls[:-1])
+                  load()
+                  self.__req.open(
+                    f'{self.URL}{page.get("href")}',
+                    proxies = self.proxy
+                  )
+                  content = str(self.__req.get_current_page())
+                  for urls in findall(
+                  self.__pattern,
+                  content
+                  ):
+                      if 'www.google.com' in self.URL: self.__list.append(urls)
+                      else: self.__list.append(urls[:-1])
               except Exception as e:
-                 print(e)
-
-Google = Parser(
-    'filetype:action site:au',
-    'https://www.google.com',
-    'class="r"><a href="/url\?q=(.*?)&amp',
-    'fl'
-)
-Bing = Parser(
-    'index.action',
-    'https://www.bing.com',
-    'h=".*?" href="(h.*?")',
-    "b_widePag sb_bp"
-)       
+                  print(e)  
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-          
