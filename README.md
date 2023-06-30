@@ -27,4 +27,4 @@ python3 ultimate-dork.py --dork keyword
 ```
  <b>[ update ] :</b> 19 March 2019
  
-#### COPYRIGHT©2019 https://github.com/jaxBCD
+#### COPYRIGHT©2019
